@@ -27,11 +27,22 @@ class _NewPostState extends State<NewPost> {
   Widget videoItem = SizedBox();
 
   var _scaffold = GlobalKey<ScaffoldState>();
+  var secure = FlutterSecureStorage();
+    var nome = "";
   @override
   void initState() {
+
     // TODO: implement initState
     super.initState();
+    init();
     articleController = new ArticleController();
+  }
+
+  init()async{
+    var name = await secure.read(key: "name");
+    setState(() {
+      nome = name;
+    });
   }
 
  
@@ -66,7 +77,7 @@ class _NewPostState extends State<NewPost> {
                       ),
                       Column(
                         children: <Widget>[
-                          Text("Tiago Silva"),
+                          Text(nome),
                           Text("Público"),
                         ],
                         mainAxisAlignment: MainAxisAlignment.center,
