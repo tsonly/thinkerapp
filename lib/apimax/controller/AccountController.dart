@@ -42,6 +42,7 @@ class AccountController{
        if(json['success'] == true){
          await secureController.save("token", json['token']);
          await secureController.save("email", email);
+          await secureController.save("name", json['nome']);
          await secureController.save("id", json['id']);
          return true;
        }else{
