@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "459809141461",
+    "firebase_url": "https://thinker-dfc80.firebaseio.com",
+    "project_id": "thinker-dfc80",
+    "storage_bucket": "thinker-dfc80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459809141461:android:4a8f37abdc520e61e1285c",
+        "android_client_info": {
+          "package_name": "com.appside.thinker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459809141461-7psaa0vtbt8i8ofq6u9bbailk7tfhhmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfECaa2l3E5XAn6kBHMsdXsyqyx0OjJbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459809141461-7psaa0vtbt8i8ofq6u9bbailk7tfhhmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
