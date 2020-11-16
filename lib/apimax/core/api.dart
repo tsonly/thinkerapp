@@ -7,9 +7,8 @@ import 'package:http/http.dart' as http;
 
 class Api{
 
-  static const url = "http://10.0.2.1:8084";
+  static const url = "https://thinkerapi.herokuapp.com";
   FlutterSecureStorage secure;
- 
 
   Api(){
     secure = new FlutterSecureStorage();
