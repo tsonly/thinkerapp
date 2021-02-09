@@ -20,6 +20,8 @@ class _HomePageState extends State<HomePage> {
   var _scaffold = GlobalKey<ScaffoldState>();
   var secure = FlutterSecureStorage();
   var myId = "";
+
+  ScrollController _scrollController = ScrollController();
   @override
   void initState() {
     // TODO: implement initState
@@ -44,6 +46,8 @@ class _HomePageState extends State<HomePage> {
     });
     
   }
+
+  
 
 @override
   void didUpdateWidget(HomePage oldWidget) {
@@ -74,6 +78,7 @@ class _HomePageState extends State<HomePage> {
             RefreshIndicator(
               onRefresh: ()=>showTimeline(),
               child: ListView.builder(
+                controller: _scrollController,
                 padding: EdgeInsets.only(top: 0, left: 4, right: 4, bottom: 4),
                 itemBuilder: (context, index) {
                   
@@ -81,6 +86,7 @@ class _HomePageState extends State<HomePage> {
                     return Header(context);
                   else{
                     timeline[index-1].position = index-1;
+                    
                     return CardArticle(timeline[index-1], _scaffold, articleController, myId, updateTimeLine);
                   }
                     

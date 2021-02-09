@@ -42,6 +42,7 @@ class _NewPostState extends State<NewPost> {
     var name = await secure.read(key: "name");
     setState(() {
       nome = name;
+      print(nome);
     });
   }
 

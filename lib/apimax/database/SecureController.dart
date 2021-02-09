@@ -9,11 +9,11 @@ class SecureController{
   }
 
   save(key, data)async{
-    await secureDatabase.write(key: key, value: data);
+    return await secureDatabase.write(key: key, value: data);
     
   }
 
   read(key)async {
-    await secureDatabase.read(key: key);
+    return await secureDatabase.read(key: key);
   }
 }

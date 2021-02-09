@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Thinker',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        
+        fontFamily: "Poppins",
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

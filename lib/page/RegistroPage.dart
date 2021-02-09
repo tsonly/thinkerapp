@@ -7,7 +7,6 @@ class RegistroPage extends StatefulWidget {
 }
 
 class _RegistroPageState extends State<RegistroPage> {
-
   var acceptTerm = false;
   var accountController = AccountController();
   var emailController = TextEditingController();
@@ -27,7 +26,10 @@ class _RegistroPageState extends State<RegistroPage> {
             children: <Widget>[
               Text(
                 "Thinker",
-                style: TextStyle(fontSize: 30, color: Colors.purple, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.purple,
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 100,
@@ -60,59 +62,77 @@ class _RegistroPageState extends State<RegistroPage> {
                   ),
                 ),
               ),
-              CheckboxListTile(title: Text("li e aceito os termos de usúario"), onChanged: (value){setState(() {
-                acceptTerm = value;
-              });}, value: acceptTerm,),
+              CheckboxListTile(
+                title: Text("li e aceito os termos de usúario"),
+                onChanged: (value) {
+                  setState(() {
+                    acceptTerm = value;
+                  });
+                },
+                value: acceptTerm,
+              ),
               SizedBox(
                 height: 16,
               ),
               FlatButton(
-                
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                padding: EdgeInsets.only(top: 15, bottom:15),
-                  child:Container(
-                    
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    child: Text(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4)),
+                padding: EdgeInsets.only(top: 15, bottom: 15),
+                child: Container(
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  child: Text(
                     "REGISTRAR",
                     style: TextStyle(color: Colors.white),
-                  
-                  ),),
-                  onPressed: () async {
-                    
-                    if(acceptTerm){
-                      var result = await accountController.registro(emailController.text, senhaController.text);
-                      if(!result){
-                        _scaffold.currentState.showSnackBar(SnackBar(content: Text("Email inválido ou em uso", style: TextStyle(color: Colors.white),),backgroundColor: Colors.purple[600],));
-                      }else{
-                        Navigator.of(context).pushReplacementNamed("home");
-                      }
-                    }
-                    else _scaffold.currentState.showSnackBar(SnackBar(content: Text("Por favor, aceite os termos!", style: TextStyle(color: Colors.white),),backgroundColor: Colors.purple[600],));
-                  },
-                  color: acceptTerm? Colors.purple:Colors.purple[200],
+                  ),
                 ),
-                 SizedBox(
+                onPressed: () async {
+                  if (acceptTerm) {
+                    var result = await accountController.registro(
+                        emailController.text, senhaController.text);
+                    if (!result) {
+                      _scaffold.currentState.showSnackBar(SnackBar(
+                        content: Text(
+                          "Email inválido ou em uso",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        backgroundColor: Colors.purple[600],
+                      ));
+                    } else {
+                      Navigator.of(context).pushReplacementNamed("home");
+                    }
+                  } else
+                    _scaffold.currentState.showSnackBar(SnackBar(
+                      content: Text(
+                        "Por favor, aceite os termos!",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      backgroundColor: Colors.purple[600],
+                    ));
+                },
+                color: acceptTerm ? Colors.purple : Colors.purple[200],
+              ),
+              SizedBox(
                 height: 4,
               ),
-                FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4), side: BorderSide(width: 2, color: Colors.purple)),
-                padding: EdgeInsets.only(top: 15, bottom:15),
-                  child:Container(
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    child: Text(
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    side: BorderSide(width: 2, color: Colors.purple)),
+                padding: EdgeInsets.only(top: 15, bottom: 15),
+                child: Container(
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  child: Text(
                     "FAZER LOGIN",
                     style: TextStyle(color: Colors.purple),
-                  
-                  ),),
-                  onPressed: () {
-                     Navigator.of(context).pushReplacementNamed("login");
-                  },
-                  color: Colors.white70,
+                  ),
                 ),
-              
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                color: Colors.white70,
+              ),
             ],
           )),
     );

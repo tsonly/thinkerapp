@@ -147,7 +147,7 @@ Widget CardArticle(item, _scaffold, controller, myId, timeline) {
                         sourceType: VideoSourceType.network);
                   },
                   onPrepared: (con, info) {
-                    con.play();
+                    //con.play();
                   },
                   onCompletion: (VideoViewController con) {},
                 ))
